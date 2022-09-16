@@ -9,12 +9,19 @@
     "experimentalDecorators": true,
     "importHelpers": true,
     "target": "es2015",
-    "module": "esnext",
     "lib": ["es2017", "dom"],
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "module": "es2020",
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@app/*": ["libs/features/src/app/*"],
+      "@core/*": ["libs/features/src/app/core/*"],
+      "@apps/*": ["apps/*"],
+      "@features": ["libs/features/src/index.ts"],
+      "@shared/*": ["libs/features/src/app/shared/*"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

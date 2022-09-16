@@ -1,5 +1,5 @@
-/* eslint-disable */
-export default {
+module.exports = {
+  testEnvironment: 'jsdom',
   displayName: 'my-app',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
@@ -19,4 +19,5 @@ export default {
     'jest-preset-angular/build/serializers/ng-snapshot',
     'jest-preset-angular/build/serializers/html-comment',
   ],
+  globalSetup: 'jest-preset-angular/global-setup',
 };
