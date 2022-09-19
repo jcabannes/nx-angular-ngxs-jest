@@ -27,6 +27,10 @@ Snapshots:   0 total
 Time:        3.028 s
 ```
 
+## Update
+
+The problem has been solved by barbados-clemens [PR](https://github.com/jcabannes/nx-angular-ngxs-jest/pull/1)
+
 # Workspace
 
 This project was generated using [Nx](https://nx.dev).
