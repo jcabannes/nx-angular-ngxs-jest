@@ -7,7 +7,7 @@
     "postinstall": "node ./decorate-angular-cli.js && ngcc --properties es2015 browser module main",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test"
+    "test": "yarn jest --clear-cache && nx test my-app --skip-nx-cache"
   },
   "private": true,
   "dependencies": {
