@@ -1,4 +1,31 @@
 
+# Project Goal
+
+This project reproduces a bug related to test. When we execute `npm test` command we face the following error
+```
+ FAIL   my-app  apps/my-app/src/app/tests/test-app.spec.ts
+  ● Test suite failed to run
+
+    ReferenceError: data_interface_1 is not defined
+
+      17 | export class DataState {
+      18 |   @Selector()
+    > 19 |   static getDataIds(state: DataStateModel): IDataIds {
+         |                                             ^
+      20 |     return state.ids;
+      21 |   }
+      22 |
+
+      at Object.<anonymous> (../../libs/features/src/app/shared/states/data/data.state.ts:19:45)
+      at Object.<anonymous> (../../libs/features/src/app/app.component.ts:4:1)
+      at Object.<anonymous> (../../libs/features/src/index.ts:1:1)
+      at Object.<anonymous> (src/app/tests/test-app.spec.ts:2:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.028 s
+```
 
 # Workspace
 
