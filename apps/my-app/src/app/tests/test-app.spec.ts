@@ -21,4 +21,7 @@ describe('Data State', () => {
 
     store = TestBed.inject(Store);
   });
+  it('should create', () => {
+    expect(store).toBeTruthy();
+  });
 });
