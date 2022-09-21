@@ -1,5 +1,8 @@
 
-# Project Goal
+# Project Goals
+
+
+## Interface definition error
 
 This project reproduces a bug related to test. When we execute `npm test` command we face the following error
 ```
@@ -27,9 +30,46 @@ Snapshots:   0 total
 Time:        3.028 s
 ```
 
-## Update
+### Update
 
 The problem has been solved by barbados-clemens [PR](https://github.com/jcabannes/nx-angular-ngxs-jest/pull/1)
+
+## Module resolution on running Jest test
+
+This project reporduces a bug related to test. When we execute `npm test` command we face the following error
+
+```
+> nx run my-app:test
+
+Determining test suites to run...
+ngcc-jest-processor: running ngcc
+ FAIL   my-app  apps/my-app/src/app/tests/test-app.spec.ts
+  ● Test suite failed to run
+
+    TypeError: Cannot read properties of undefined (reading 'child')
+
+       8 |   imports: [
+       9 |     TestModule.forRoot(
+    > 10 |       EnvServiceProvider.useFactory().parent.child
+         |                                             ^
+      11 |         ? {
+      12 |             id: 'test',
+      13 |           }
+
+      at Object.<anonymous> (../../libs/features/src/app/shared/auth/auth.module.ts:10:45)
+      at Object.<anonymous> (../../libs/features/src/app/core/core.module.ts:4:1)
+      at Object.<anonymous> (../../libs/features/src/app/app.module.ts:6:1)
+      at Object.<anonymous> (../../libs/features/src/index.ts:6:1)
+      at Object.<anonymous> (src/app/tests/test-app.spec.ts:2:1)
+
+Test Suites: 1 failed, 1 total
+Tests:       0 total
+Snapshots:   0 total
+Time:        3.926 s
+Ran all test suites.
+```
+
+In `apps/my-app/src/app/tests/test-app.spec.ts` file there is an import from the local module `@features`. We import only two elements (`DataState` and `IDataIds`) from this module. The error comes from `AuthModule` imported by `CoreModule` which is imported by `AppModule`. It seems that Jest is trying to resolve all exported elements from `libs/features/src/index.ts`.
 
 # Workspace
 

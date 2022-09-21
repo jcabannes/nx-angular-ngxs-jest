@@ -13,7 +13,11 @@
         "polyfills": "apps/my-app/src/polyfills.ts",
         "tsConfig": "apps/my-app/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
-        "assets": ["apps/my-app/src/favicon.ico", "apps/my-app/src/assets"],
+        "assets": [
+          "apps/my-app/src/favicon.ico",
+          "apps/my-app/src/assets",
+          "apps/my-app/src/env.js"
+        ],
         "styles": ["apps/my-app/src/styles.scss"],
         "scripts": []
       },
